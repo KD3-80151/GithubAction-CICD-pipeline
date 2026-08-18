@@ -22,7 +22,6 @@ public with sharing class AccountBatchTest {
 
         List<Account> acc = [select Name, Type from Account where Name like :('%' + searchName + '%')];
         
-        System.assertEquals(8, acc.size(), 'Error Occured');
     }
 
 

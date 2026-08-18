@@ -62,6 +62,6 @@ jobs:
             --manifest delta/package/package.xml \
             --pre-destructive-changes delta/destructiveChanges/destructiveChanges.xml \
             --test-level RunSpecifiedTests \
-            --tests PipelineTestClassTest \
+            --tests PipelineTestClassTest --tests AutomationProofTest \
             --target-org target \
             --wait 60

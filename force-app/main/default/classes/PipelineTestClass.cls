@@ -1,7 +1,5 @@
-@isTest
-private class PipelineTestClassTest {
-    @isTest
-    static void testSayHello() {
-        System.assertEquals('Hello from the pipeline', PipelineTestClass.sayHello());
+public with sharing class PipelineTestClass {
+    public static String sayHello() {
+        return 'Hello from the pipeline';
     }
 }

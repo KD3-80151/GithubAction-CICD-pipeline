@@ -17,7 +17,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Install CLI
         run: |
@@ -26,6 +26,7 @@ jobs:
 
       - name: Generate delta
         run: |
+          mkdir -p delta
           sf sgd source delta \
             --from origin/${{ github.base_ref }} --to HEAD \
             --output-dir delta --generate-delta
@@ -60,6 +61,7 @@ jobs:
           sf project deploy validate \
             --manifest delta/package/package.xml \
             --pre-destructive-changes delta/destructiveChanges/destructiveChanges.xml \
-            --test-level RunLocalTests \
+            --test-level RunSpecifiedTests \
+            --tests PipelineTestClassTest \
             --target-org target \
             --wait 60

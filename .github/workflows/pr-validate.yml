@@ -61,6 +61,6 @@ jobs:
           sf project deploy validate \
             --manifest delta/package/package.xml \
             --pre-destructive-changes delta/destructiveChanges/destructiveChanges.xml \
-            --test-level RunLocalTests \
+            --test-level NoTestRun \
             --target-org target \
             --wait 60

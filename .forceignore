@@ -18,3 +18,4 @@ package.xml
 **/installedPackages/**
 **/sfdcInternalInt__*
 node_modules/
+**/RestAccountFetch.cls*

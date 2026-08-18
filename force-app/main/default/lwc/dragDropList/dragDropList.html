@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Drag & Drop Reorder">
+        <div class="slds-box slds-p-around_medium">
+            <ul class="drag-container">
+                <template for:each={items} for:item="item">
+                    <li key={item.id}
+                        class="draggable-item"
+                        draggable="true"
+                        data-id={item.id}
+                        ondragstart={handleDragStart}
+                        ondragover={handleDragOver}
+                        ondrop={handleDrop}>
+                        {item.name}
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </lightning-card>
+</template>

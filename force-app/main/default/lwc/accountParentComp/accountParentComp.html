@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Get Contatcs">
+        <lightning-radio-group label=""
+                                options={accountOptions}
+                                value={selectAccountId}
+                                onchange={handleChange}>
+
+        </lightning-radio-group>
+    </lightning-card>
+    
+    <!--custom attribute -> account-id-->
+    <c-contact-child-comp account-id={selectAccountId}></c-contact-child-comp>
+</template>

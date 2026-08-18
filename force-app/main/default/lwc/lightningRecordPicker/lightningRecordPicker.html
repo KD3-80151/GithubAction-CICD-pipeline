@@ -1,0 +1,29 @@
+<template>
+   <lightning-card title="Select a Contact">
+       <div class="slds-p-around_medium">
+           <lightning-record-picker
+           label="Choose a Record"
+           placeholder="Search Contacts..."
+           object-api-name="Contact"
+           value={contactId}
+           onchange={handleRecordChange}
+           size="large"
+           icon-name="standard:contact"
+           variant="label-hidden">
+           </lightning-record-picker>
+       </div>
+ 
+ 
+       <template if:true={contact.data}>
+           <div class="slds-m-top_medium">
+               <lightning-card title="Selected Contact">
+                   <div class="slds-p-around_medium">
+                       <p><strong>Name:</strong> {contact.data.fields.Name.value}</p>
+                       <p><strong>Email:</strong> {contact.data.fields.Email.value}</p>
+                       <p><strong>Phone:</strong> {contact.data.fields.Phone.value}</p>
+                   </div>
+               </lightning-card>
+           </div>
+       </template>
+   </lightning-card>
+</template>

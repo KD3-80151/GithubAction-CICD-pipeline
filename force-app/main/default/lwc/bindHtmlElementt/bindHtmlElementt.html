@@ -1,0 +1,18 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Hello" icon-name="standard:account">
+        <lightning-button-icon  icon-name="utility:down" title="Practice Data Binding" variant="border-filled" 
+        alternative-text="Show More" slot="actions"></lightning-button-icon>
+        
+        <p class="slds-p-horizontal_small">Hello, {myValue} </p>
+       
+        <br/> 
+        <br/>
+
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" name="firstName" label="First Name" value={myValue} onchange={handleChange}></lightning-input>
+            <br/>
+            <!-- <lightning-input type="text" name="lastName" label="Last Name" value={myValue} onchange={handleChange}></lightning-input> -->
+
+        </div>
+    </lightning-card>
+</template>

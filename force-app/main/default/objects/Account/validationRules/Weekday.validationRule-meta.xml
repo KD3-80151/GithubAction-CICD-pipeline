@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Weekday</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(  WEEKDAY( Account_Created_On__c ) = 1,
+  WEEKDAY( Account_Created_On__c ) = 7)</errorConditionFormula>
+    <errorDisplayField>Account_Created_On__c</errorDisplayField>
+    <errorMessage>Enter the weekday</errorMessage>
+</ValidationRule>

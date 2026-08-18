@@ -1,0 +1,119 @@
+.header {
+  background: var(--lwc-colorBackgroundAlt, #f3f3f3);
+  border-radius: 0.5rem;
+}
+
+header.slds-p-around_small { 
+  background: var(--lwc-colorBackgroundAlt, #f3f3f3);
+  border-radius: .5rem;
+}
+
+.meta .selected-chip {
+  margin-left: 1rem;
+  padding: 0.1rem 0.5rem;
+  background: var(--lwc-colorBackgroundHighlight, #e5f3ff);
+  border-radius: 0.5rem;
+}
+
+.primary-label {
+  font-weight: 600;
+  margin-right: 0.25rem;
+}
+.primary-value {
+  font-weight: 600;
+}
+.muted {
+  color: var(--lwc-colorTextWeak, #706e6b);
+  margin-left: 0.5rem;
+}
+
+.pager {
+  position: sticky;
+  bottom: 0;
+  background: var(--lwc-colorBackground, #fff);
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--lwc-colorBorder, #dddbda);
+}
+
+.w-120 {
+  width: 120px;
+}
+
+@media (max-width: 640px) {
+  .w-120 { width: 100px; }
+  .container { padding: 0 0.5rem; }
+}
+
+.row-primary {
+  background: var(--lwc-colorBackgroundAlt, #f3f3f3);
+  font-weight: 600;
+}
+
+.toolbar {
+  background: var(--lwc-colorBackgroundAlt, #f3f3f3);
+  border-radius: 0.5rem;
+}
+
+.toolbar {
+  background: var(--lwc-colorBackgroundAlt, #f3f3f3);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.title { padding-left: 40% }
+
+.actions { padding-right: 0.25rem; }
+
+.btnwrap {
+  padding: 0;
+}
+
+.btnwrap.bordered {
+  display: inline-block;
+  border: 1px solid var(--lwc-colorBorder, #dddbda);
+  border-radius: 0.25rem;
+  background: var(--lwc-colorBackground, #fff);
+  padding: 0.25rem 0.5rem;
+}
+
+.tab-btn {
+  margin-left: 0.0625rem;
+  margin-right: 0.0625rem;
+}
+
+@media (max-width: 640px) {
+  .title { padding-left: 0.125rem; }
+  .actions { padding-right: 0.125rem; }
+}
+.table-container {
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+th {
+    background: #2b4167;
+    color: white;
+    font-weight: 800;
+}
+tr:hover{
+    background: #faf8f8;
+    border-radius: 8px;
+}
+.mainDiv{
+  background-color: white;
+  border-radius: 8px;
+}
+.secondmainDiv{
+  padding: 1%;
+}

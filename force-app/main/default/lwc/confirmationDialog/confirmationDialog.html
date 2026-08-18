@@ -1,0 +1,34 @@
+<template>
+    <template if:true={visible}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+
+                <header class="slds-modal__header">
+                    <h2 class="slds-modal__title">{title}</h2>
+                </header>
+
+                <div class="slds-modal__content slds-p-around_medium">
+                    <p if:false={isSecondConfirm}>{message}</p>
+
+                    <div if:true={isSecondConfirm} class="final-warning slds-text-color_error">
+                        <p class="slds-text-heading_medium slds-m-bottom_small"> This is your last chance!</p>
+                        <p>Once deleted, this cannot be undone. Are you absolutely sure?</p>
+                    </div>
+                </div>
+
+                <footer class="slds-modal__footer">
+                    <template if:false={isSecondConfirm}>
+                        <lightning-button label="Cancel" variant="neutral" onclick={handleCancel}></lightning-button>
+                        <lightning-button label="Confirm" variant="brand" onclick={handleFirstConfirm}></lightning-button>
+                    </template>
+
+                    <template if:true={isSecondConfirm}>
+                        <lightning-button label="Go Back" variant="neutral" onclick={handleCancel}></lightning-button>
+                        <lightning-button label="Yes, Delete" variant="destructive" onclick={handleFinalDelete}></lightning-button>
+                    </template>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

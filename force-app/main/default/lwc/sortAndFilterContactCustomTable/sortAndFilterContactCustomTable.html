@@ -1,0 +1,64 @@
+<template>
+    <lightning-input 
+        type="search" 
+        label="Search Contacts" 
+        placeholder="Enter contact name" 
+        onchange={handleSearch}>
+    </lightning-input>
+    
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_striped">
+        <thead>
+            <tr>
+                <th scope="col">
+                    <a href="#" data-field-name="Id" onclick={handleSort}>
+                        Id
+                        <template if:true={isIdSortedDesc}>
+                            
+                        </template>
+                        <template if:true={isIdSortedAsc}>
+                            
+                        </template>
+                    </a>
+                </th>
+                <th scope="col">
+                    <a href="#" data-field-name="Name" onclick={handleSort}>
+                        Name
+                        <template if:true={isNameSortedDesc}>
+                            
+                        </template>
+                        <template if:true={isNameSortedAsc}>
+                        </template>
+                    </a>
+                </th>
+                <th scope="col">
+                    <a href="#" data-field-name="Phone" onclick={handleSort}>
+                        Phone
+                        <template if:true={isPhoneSortedDesc}>
+                        </template>
+                        <template if:true={isPhoneSortedAsc}>
+                        </template>
+                    </a>
+                </th>
+                <th scope="col">
+                    <a href="#" data-field-name="AccountName" onclick={handleSort}>
+                        Account Name
+                        <template if:true={isAccountNameSortedDesc}>
+                            </template>
+                        <template if:true={isAccountNameSortedAsc}>
+                        </template>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={data} for:item="contact">
+                <tr key={contact.Id}>
+                    <td>{contact.Id}</td>
+                    <td>{contact.Name}</td>
+                    <td>{contact.Phone}</td>
+                    <td>{contact.AccountName}</td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</template>

@@ -1,0 +1,17 @@
+<template>
+    <div class="dynamic-slot-container">
+
+        <!-- <slot name={dynamicSlotName}></slot> 
+        In Lightning Web Components (LWC), the name attribute on a <slot> 
+            tag must be a string literal. It cannot be dynamically assigned using curly braces {}. 
+            This is a limitation in LWC because the slot names must be determined at compile time. -->
+
+            <template if:true={isDefaultSlot}>
+                <slot name="default"></slot> 
+            </template>
+            <template if:true={isCustomSlot}>
+                <slot name="custom"></slot>
+            </template>
+
+    </div>
+</template>

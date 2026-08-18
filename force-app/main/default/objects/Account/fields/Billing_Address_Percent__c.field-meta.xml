@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Address_Percent__c</fullName>
+    <formula>(IF(NOT(ISBLANK(BillingStreet)),1,0) +
+IF(NOT(ISBLANK(BillingCity)),1,0) +
+IF(NOT(ISBLANK(BillingState)),1,0) +
+IF(NOT(ISBLANK(BillingPostalCode)),1,0) +
+IF(NOT(ISBLANK(BillingCountry)),1,0)
+) * 0.2</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Billing Address Percent</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

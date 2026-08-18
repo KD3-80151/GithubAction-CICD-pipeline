@@ -1,0 +1,30 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item>
+            <lightning-button label="Previous"
+                              icon-name="utility:left" 
+                              onclick={previousHandler}
+                              
+                              disabled={previosDisabled}
+                              >
+            </lightning-button>
+        </lightning-layout-item>
+        
+        <lightning-layout-item>
+            Displaying {currentPage} of {totalPage} page
+        </lightning-layout-item>
+       
+        <lightning-layout>
+            <lightning-button label="Next"
+                              icon-name="utility:right" 
+                              onclick={nextHandler}
+                              disabled={nextDisabled}
+                              >
+                              
+            </lightning-button>
+        </lightning-layout>
+        
+        
+
+    </lightning-layout>
+</template>

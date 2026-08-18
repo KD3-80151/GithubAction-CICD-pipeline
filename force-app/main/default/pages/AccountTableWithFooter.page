@@ -1,0 +1,120 @@
+<apex:page controller="AccountTableController" showHeader="false" sidebar="false" applyBodyTag="false" applyHtmlTag="false" 
+           standardStylesheets="false" renderAs="pdf">
+    
+ 
+
+    <style>
+        /* Reserve space so table/content won't be hidden behind fixed footer */
+        body {
+            margin: 0;
+            padding-bottom: 80px; /* must match or be larger than footer height */
+            font-family: "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 0 12px;
+        }
+
+        .title {
+            margin-bottom: 12px;
+        }
+
+        /* Use pageBlock look for Salesforce styling */
+        .data-table th, .data-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: left;
+        }
+
+        .data-table th {
+            font-weight: 600;
+            background: #fafafa;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            line-height: 80px; /* vertically center text */
+            background-color: #f4f6f9;
+            border-top: 1px solid #d2d6dc;
+            text-align: center;
+            color: #333;
+            box-shadow: 0 -1px 4px rgba(0,0,0,0.03);
+            z-index: 9999;
+        }
+
+        .small {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Responsive table wrapper */
+        .table-wrap {
+            overflow-x: auto;
+        }
+    </style>
+
+    <div class="container">
+        <h2 class="title">Accounts</h2>
+
+        <!-- optional refresh button -->
+        <apex:form >
+            <apex:commandButton value="Refresh" action="{!refresh}" style="margin-bottom:12px;" rerender="acctBlock" />
+        </apex:form>
+
+        <apex:outputPanel id="acctBlock">
+            <div class="table-wrap">
+                <table width="100%" class="data-table" cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th style="width:30%;">Account Name</th>
+                            <th style="width:15%;">Industry</th>
+                            <th style="width:20%;">Phone</th>
+                            <th style="width:20%;">Annual Revenue</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:repeat value="{!accounts}" var="acc">
+                            <tr>
+                                <td>
+                                    <!-- link to Account detail -->
+                                    <apex:outputLink value="/{!acc.Id}" target="_blank">
+                                        {!acc.Name}
+                                    </apex:outputLink>
+                                </td>
+                                <td>{!IF(ISBLANK(acc.Industry),'—',acc.Industry)}</td>
+                                <td>{!IF(ISBLANK(acc.Phone),'—',acc.Phone)}</td>
+                                <td>
+                                    <apex:outputText rendered="{!NOT(ISBLANK(acc.AnnualRevenue))}">
+                                        {!acc.AnnualRevenue}
+                                    </apex:outputText>
+                                    <apex:outputText rendered="{!ISBLANK(acc.AnnualRevenue)}">—</apex:outputText>
+                                </td>
+                            </tr>
+                        </apex:repeat>
+
+                        <!-- show a friendly message when no records -->
+                        <apex:outputPanel rendered="{!IF(NOT(ISNULL(accounts)) && accounts.size == 0, true, false)}">
+                            <tr>
+                                <td colspan="4" class="small">No accounts found.</td>
+                            </tr>
+                        </apex:outputPanel>
+                    </tbody>
+                </table>
+            </div>
+        </apex:outputPanel>
+    </div>
+
+    <!-- Fixed footer -->
+    <div class="footer">
+        <div>
+            <strong>My Company</strong> &nbsp; | &nbsp;
+            <span class="small">© 2025 All rights reserved.</span>
+        </div>
+    </div>
+</apex:page>

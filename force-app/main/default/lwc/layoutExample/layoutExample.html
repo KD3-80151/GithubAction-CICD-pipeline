@@ -1,0 +1,65 @@
+<template>
+    <lightning-accordion allow-multiple-sections-open="true" active-section-name={activeSectionNames}>
+    <lightning-record-edit-form
+      record-id={recordId}
+      object-api-name="User"
+      onsuccess={handleSuccess}
+      onerror={handleError}>
+      <lightning-messages></lightning-messages>
+
+      <template if:true={uiRecordView}>
+        <lightning-layout multiple-rows="true">
+          <lightning-layout-item size="12">
+            <template for:each={uiRecordView.sections} for:item="section">
+              <lightning-accordion-section key={section.id} name={section.id} label={section.heading}>
+                <lightning-layout multiple-rows="true">
+                  <template for:each={section.layoutRows} for:item="layoutRow">
+                    <template for:each={layoutRow.layoutItems} for:item="layoutItem">
+                      <template for:each={layoutItem.layoutComponents} for:item="layoutComponent">
+                        <lightning-layout-item key={layoutComponent.apiName} size="6" padding="horizontal-small">
+                          <template if:false={editable}>
+                            <lightning-output-field
+                              field-name={layoutComponent.apiName}>
+                            </lightning-output-field>
+                          </template>
+                        </lightning-layout-item>
+                      </template>
+                    </template>
+                  </template>
+                </lightning-layout>
+              </lightning-accordion-section>
+            </template>
+          </lightning-layout-item>
+        </lightning-layout>
+      </template>
+
+      <template if:true={uiRecordEdit}>
+        <lightning-layout multiple-rows="true">
+          <lightning-layout-item size="12">
+            <template for:each={uiRecordEdit.sections} for:item="section">
+              <lightning-accordion-section key={section.id} name={section.id} label={section.heading}>
+                <lightning-layout multiple-rows="true">
+                  <template for:each={section.layoutRows} for:item="layoutRow">
+                    <template for:each={layoutRow.layoutItems} for:item="layoutItem">
+                      <template for:each={layoutItem.layoutComponents} for:item="layoutComponent">
+                        <lightning-layout-item key={layoutComponent.apiName} size="6" padding="horizontal-small">
+                          <template if:false={editable}>
+                            <lightning-input-field
+                              field-name={layoutComponent.apiName}
+                              required={layoutItem.required}>
+                            </lightning-input-field>
+                          </template>
+                        </lightning-layout-item>
+                      </template>
+                    </template>
+                  </template>
+                </lightning-layout>
+              </lightning-accordion-section>
+            </template>
+          </lightning-layout-item>
+        </lightning-layout>
+      </template>
+
+    </lightning-record-edit-form>
+  </lightning-accordion>
+</template>

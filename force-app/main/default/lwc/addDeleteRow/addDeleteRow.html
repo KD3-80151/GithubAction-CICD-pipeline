@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title="Add/Delete Input Rows" icon-name="utility:add">
+        <div class="slds-p-around_medium">
+            <template for:each={rows} for:item="row" for:index="index">
+                <div key={row.id} class="slds-grid slds-m-bottom_small">
+                    <lightning-input
+                        label="Name"
+                        value={row.name}
+                        data-index={index}
+                        onchange={handleInputChange}
+                        class="slds-col slds-size_9-of-12">
+                    </lightning-input>
+
+                    <lightning-button-icon
+                        icon-name="utility:delete"
+                        alternative-text="Delete"
+                        title="Delete"
+                        data-index={index}
+                        onclick={removeRow}
+                        class="slds-col slds-size_1-of-12 slds-m-left_small"
+                        variant="bare"
+                        icon-class="slds-button__icon_hint">
+                    </lightning-button-icon>
+                </div>
+            </template>
+
+            <lightning-button
+                label="Add Row"
+                icon-name="utility:add"
+                onclick={addRow}
+                variant="brand"
+                class="slds-m-top_medium">
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

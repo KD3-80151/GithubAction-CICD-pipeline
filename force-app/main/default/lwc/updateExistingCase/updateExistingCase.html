@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Update Case">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Case ID" value={caseId} onchange={handleCaseIdChange}></lightning-input>
+            <lightning-button label="Load Case" onclick={loadCase} variant="brand"></lightning-button>
+            <template if:true={caseLoaded}>
+                <div class="slds-m-top_medium">
+                    <lightning-input label="Subject" value={subject} onchange={handleSubjectChange}></lightning-input>
+                    <lightning-input label="Description" value={description} onchange={handleDescriptionChange}></lightning-input>
+                    <lightning-combobox label="Status" value={status} options={statusOptions} onchange={handleStatusChange}></lightning-combobox>
+                    <lightning-button label="Update Case" onclick={updateCase} variant="brand"></lightning-button>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

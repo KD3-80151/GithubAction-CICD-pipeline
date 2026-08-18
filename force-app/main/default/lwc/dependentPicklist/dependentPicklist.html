@@ -1,0 +1,33 @@
+<template>
+    <div class="slds-card">
+        <h1 class="slds-card__header-title slds-align_absolute-center">Picklist Type Fields</h1>
+    </div>
+    <div class="slds-card">
+        <lightning-combobox 
+            name="ObjectList" 
+            label="Select Object" 
+            onchange={onObjectChange} 
+            options={objectList} 
+            placeholder="Select Object">
+        </lightning-combobox>
+    </div>
+
+    <div class="slds-card">
+        <lightning-combobox 
+            name="fieldList" 
+            label={picklistFieldsLabel} 
+            onchange={getPicklistFieldsOptions} 
+            options={lstOfPicklistFields} 
+            placeholder="Select Fields">
+        </lightning-combobox>
+    </div>
+
+    <div class="slds-card">
+        <lightning-combobox 
+            name="fieldList" 
+            label="Available values" 
+            options={objectFieldOptionsList} 
+            placeholder="Select Field">
+        </lightning-combobox>
+    </div>
+</template>

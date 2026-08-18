@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="External API Callout">
+        <lightning-button label="Fetch Data" onclick={handleFetch}></lightning-button>
+        <template if:true={responseData}>
+            <div class="slds-box slds-m-top_medium">
+                <pre>{responseData}</pre>
+            </div>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,18 @@
+<template>
+<lightning-card title="Contact Lists">
+
+    <lightning-input type="Search" label="Search" placeholder="Enter Contcat Name" onchange={handleSearchInput}>
+
+    </lightning-input>
+    <template if:true={contacts}>
+        
+        <lightning-datatable
+                        key-field="Id"
+                        data={contacts}
+                        columns={columns}                    
+    >
+    </lightning-datatable>
+    </template>
+</lightning-card>
+    
+</template>

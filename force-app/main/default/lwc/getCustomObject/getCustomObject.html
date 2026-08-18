@@ -1,0 +1,33 @@
+<template>
+    <div class="slds-card">
+        <h1 class="slds-card__header-title slds-align_absolute-center">Picklist Type Fields</h1>
+    </div>
+    <div class="slds-card">
+        <lightning-combobox name="ObjectList" 
+                            label="Select Object" 
+                            onchange={handleObjectChange} 
+                            options={objectList} 
+                            placeholder="Select Object">
+        </lightning-combobox>
+    </div>
+    <div class="slds-card">
+        <lightning-dual-listbox name="fieldList" 
+                                label="Select Fields" 
+                                source-label="Available Fields" 
+                                selected-label="Selected Fields" 
+                                field-level-help="Select the fields you want to display" 
+                                options={fieldList} 
+                                onchange={handleFieldChange} 
+                                value={selectedFields}>
+        </lightning-dual-listbox>
+        <lightning-button label="Get Details" 
+                          onclick={handleGetDetails}>
+        </lightning-button>
+    </div>
+    <template if:true={records}>
+        <lightning-datatable key-field="Id"
+                             data={records}
+                             columns={columns}>
+        </lightning-datatable>
+    </template>
+</template>

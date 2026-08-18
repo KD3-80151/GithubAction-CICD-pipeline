@@ -1,0 +1,15 @@
+.stage-new {
+    background-color: orange;
+}
+
+.stage-active {
+    background-color: green;
+}
+
+.stage-junk {
+    background-color: red;
+}
+
+.stage-converted {
+    background-color: purple;
+}

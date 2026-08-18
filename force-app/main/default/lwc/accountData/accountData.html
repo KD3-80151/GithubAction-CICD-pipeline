@@ -1,0 +1,12 @@
+<template>
+    <lightning-button label="Get Accounts" onclick={handleFetchAccounts} class="slds-m-bottom_small"></lightning-button>
+    <lightning-spinner if:true={isLoading} alternative-text="Loading" size="small"></lightning-spinner>
+    <template if:true={accounts}>
+        <lightning-datatable
+            key-field="Id"
+            data={accounts}
+            columns={columns}
+            hide-checkbox-column="true">
+        </lightning-datatable>
+    </template>
+</template>

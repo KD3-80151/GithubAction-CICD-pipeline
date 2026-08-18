@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="Update Case">
+        <div class="slds-m-around_medium">
+            <lightning-input label="Case ID" value={caseId} onchange={handleCaseIdChange}></lightning-input>
+            <lightning-button label="Search" onclick={handleSearch} class="slds-m-top_small"></lightning-button>
+        </div>
+
+        <template if:true={isLoading}>
+            <div class="slds-m-around_medium">
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:true={caseFound}>
+            <div class="slds-m-around_medium">
+                <lightning-record-edit-form object-api-name="Case" record-id={caseId} 
+                onsuccess={handleUpdateSuccess} >
+                    <lightning-messages></lightning-messages>
+                    <lightning-input-field field-name="Subject"></lightning-input-field>
+                    <lightning-input-field field-name="Description"></lightning-input-field>
+                    <lightning-input-field field-name="Status"></lightning-input-field>
+                    <lightning-button class="slds-m-top_small" variant="brand" type="submit" label="Update" ></lightning-button>
+                </lightning-record-edit-form>
+            </div>
+        </template>
+
+        <template if:true={errorMessage}>
+            <div class="slds-text-color_error slds-m-around_medium">
+                {errorMessage}
+            </div>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Level_of_Question_asked__c</fullName>
+    <label>Level of Question asked</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Very Easy</fullName>
+                <default>false</default>
+                <label>Very Easy</label>
+            </value>
+            <value>
+                <fullName>Easy</fullName>
+                <default>false</default>
+                <label>Easy</label>
+            </value>
+            <value>
+                <fullName>Medium</fullName>
+                <default>false</default>
+                <label>Medium</label>
+            </value>
+            <value>
+                <fullName>Hard</fullName>
+                <default>false</default>
+                <label>Hard</label>
+            </value>
+            <value>
+                <fullName>Very Hard</fullName>
+                <default>false</default>
+                <label>Very Hard</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

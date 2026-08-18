@@ -1,0 +1,11 @@
+<template>
+    <lightning-button label="Delete Record" variant="destructive" onclick={promptDelete}></lightning-button>
+
+    <c-confirmation-dialog
+        visible={showDialog}
+        title="Delete Confirmation"
+        message="Are you sure you want to delete this record?"
+        oncancel={handleCancel}
+        onconfirm={handleDelete}>
+    </c-confirmation-dialog>
+</template>

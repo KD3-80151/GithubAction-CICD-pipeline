@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="for row actions table" icon-name="standard:contact">
+        <lightning-datatable
+            key-field="Id"
+            data={contacts}
+            columns={columns}
+            onrowaction={handleRowAction}>
+        </lightning-datatable>
+    </lightning-card>
+</template>

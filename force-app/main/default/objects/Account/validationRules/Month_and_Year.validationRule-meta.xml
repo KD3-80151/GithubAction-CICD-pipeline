@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Month_and_Year</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(
+YEAR( Account_Created_On__c ) &lt;&gt; YEAR(TODAY()),
+MONTH(Account_Created_On__c) &lt;&gt; MONTH(TODAY())
+)</errorConditionFormula>
+    <errorDisplayField>Account_Created_On__c</errorDisplayField>
+    <errorMessage>Enter the current month and year</errorMessage>
+</ValidationRule>

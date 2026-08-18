@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Tabbed Accordion UI">
+        <div class="slds-p-horizontal_medium">
+            <lightning-tabset>
+                <template for:each={tabs} for:item="tab">
+                    <lightning-tab key={tab.label} label={tab.label}>
+                        <lightning-accordion allow-multiple-sections-open>
+                            <template for:each={tab.sections} for:item="section">
+                                <lightning-accordion-section key={section.id} name={section.id} label={section.title}>
+                                    <p>{section.content}</p>
+                                </lightning-accordion-section>
+                            </template>
+                        </lightning-accordion>
+                    </lightning-tab>
+                </template>
+            </lightning-tabset>
+        </div>
+    </lightning-card>
+</template>

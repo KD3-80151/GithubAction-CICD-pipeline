@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Geocode_Service__c</fullName>
+    <label>Geocode Service</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Google Maps</fullName>
+                <default>false</default>
+                <label>Google Maps</label>
+            </value>
+            <value>
+                <fullName>QGIS</fullName>
+                <default>false</default>
+                <label>QGIS</label>
+            </value>
+            <value>
+                <fullName>Esri</fullName>
+                <default>false</default>
+                <label>Esri</label>
+            </value>
+            <value>
+                <fullName>TomTom Geocoder</fullName>
+                <default>false</default>
+                <label>TomTom Geocoder</label>
+            </value>
+            <value>
+                <fullName>Mapbox</fullName>
+                <default>false</default>
+                <label>Mapbox</label>
+            </value>
+            <value>
+                <fullName>OpenCage</fullName>
+                <default>false</default>
+                <label>OpenCage</label>
+            </value>
+            <value>
+                <fullName>USGeocoder</fullName>
+                <default>false</default>
+                <label>USGeocoder</label>
+            </value>
+            <value>
+                <fullName>GoogleGeoCode</fullName>
+                <default>false</default>
+                <label>GoogleGeoCode</label>
+            </value>
+            <value>
+                <fullName>USGeoCode</fullName>
+                <default>false</default>
+                <label>USGeoCode</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

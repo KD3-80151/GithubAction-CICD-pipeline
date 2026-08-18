@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Custom Field Validation">
+        <div class="slds-p-around_medium">
+            <lightning-input
+                label="Name"
+                name="name"
+                type="text"
+                value={name}
+                onchange={handleInputChange}
+                onblur={validateName}
+                message-when-bad-input="Only alphabets allowed">
+            </lightning-input>
+            <template if:true={nameError}>
+                <div class="slds-text-color_error slds-m-top_x-small">{nameError}</div>
+            </template>
+
+            <lightning-input
+                label="Email"
+                name="email"
+                type="email"
+                value={email}
+                onchange={handleInputChange}
+                onblur={validateEmail}
+                message-when-bad-input="Invalid email format">
+            </lightning-input>
+            <template if:true={emailError}>
+                <div class="slds-text-color_error slds-m-top_x-small">{emailError}</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

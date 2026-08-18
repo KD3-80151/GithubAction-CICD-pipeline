@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Region__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(OR(
+BillingState = &quot;Bihar&quot;,
+BillingState = &quot;UP&quot;,
+BillingState = &quot;Jharkhand&quot;
+), &quot;East&quot;,
+IF(OR(
+BillingState = &quot;Kerala&quot;,
+BillingState = &quot;Tamil Nadu&quot;
+),&quot;South&quot;,
+IF(OR(
+BillingState = &quot;Rajasthan&quot;,
+BillingState = &quot;Gujrat&quot;
+),&quot;West&quot;,
+IF(OR(
+BillingState = &quot;Delhi&quot;,
+BillingState = &quot;Haryana&quot;
+),&quot;North&quot;,
+&quot;Abcd&quot; 
+))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Region</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

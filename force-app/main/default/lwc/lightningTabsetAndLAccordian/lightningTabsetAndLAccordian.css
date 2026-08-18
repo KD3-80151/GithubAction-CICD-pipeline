@@ -1,0 +1,21 @@
+:host {
+    --slds-c-card-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: block;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
+lightning-card {
+    border-radius: 10px;
+    box-shadow: var(--slds-c-card-shadow);
+}
+
+lightning-tabset {
+    margin-top: 1rem;
+}
+
+lightning-accordion-section p {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.5;
+    padding: 0.5rem 0;
+}

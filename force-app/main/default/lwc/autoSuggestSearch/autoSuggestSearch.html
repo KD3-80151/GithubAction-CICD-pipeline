@@ -1,0 +1,18 @@
+<template>
+    <lightning-input
+        label="Search Account"
+        value={searchTerm}
+        onchange={handleInputChange}
+        placeholder="Type account name"
+    ></lightning-input>
+
+    <template if:true={suggestions}>
+        <ul class="slds-box slds-m-top_small">
+            <template for:each={suggestions} for:item="account">
+                <li key={account.Id} class="slds-p-vertical_x-small">
+                    {account.Name}
+                </li>
+            </template>
+        </ul>
+    </template>
+</template>

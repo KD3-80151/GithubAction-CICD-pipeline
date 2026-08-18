@@ -1,0 +1,18 @@
+.edit-icon {
+    cursor: pointer;
+}
+
+.edit-icon:hover {
+    color: brown;
+}
+
+
+.selected-button {
+    background-color: #4CAF50; 
+    color: white;
+}
+
+.unselected-button {
+    background-color: #f1f1f1; 
+    color: black;
+}

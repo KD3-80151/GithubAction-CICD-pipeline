@@ -1,0 +1,15 @@
+<template>
+    <!-- <lightning-card title="Parent Class">
+        <c-child-component> </c-child-component>
+        <lightning-button variant="brand" label="submit" onclick={handleCLick}></lightning-button>
+    </lightning-card> -->
+    <lightning-button label="Open Modal" onclick={openModal}></lightning-button>
+
+    <c-modal-popup
+        is-open={showModal}
+        header="Are you sure?"
+        oncancel={closeModal}
+        onconfirm={handleConfirm}>
+        <p>This action cannot be undone. Do you wish to proceed?</p>
+    </c-modal-popup>
+</template>

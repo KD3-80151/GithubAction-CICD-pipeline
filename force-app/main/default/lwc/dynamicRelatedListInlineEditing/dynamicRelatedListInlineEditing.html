@@ -1,0 +1,46 @@
+<template>
+    <template if:true={globalSaving}>
+        <lightning-spinner size="medium" alternative-text="Saving"></lightning-spinner>
+    </template>
+
+    <template if:true={hasOpportunities}>
+        <template for:each={visibleOpportunities} for:item="opp">
+            <lightning-card key={opp.oppId} title={opp.name} icon-name="standard:opportunity"
+                class="slds-m-bottom_medium">
+
+                <div class="slds-p-horizontal_small slds-p-bottom_small">
+
+                    <div class="slds-text-title_caps slds-m-bottom_x-small">
+                        Stage: {opp.stageName} |
+                        Amount: {opp.amount} |
+                        Close Date: {opp.closeDate}
+                    </div>
+
+                    <template if:true={opp.isLoading}>
+                        <lightning-spinner size="small" alternative-text="Loading"></lightning-spinner>
+                    </template>
+
+                    <lightning-datatable key-field="Id" data={opp.lineItems} columns={columns} draft-values={opp.draftValues} data-id={opp.oppId} onsave={handleSave} hide-checkbox-column ></lightning-datatable>
+
+                </div>
+            </lightning-card>
+        </template>
+
+        <div class="slds-m-top_medium slds-grid slds-grid_align-spread slds-p-horizontal_small">
+            <lightning-button label="Previous" onclick={handlePreviousPage} disabled={isPrevDisabled}></lightning-button>
+
+            <span class="slds-m-horizontal_small slds-align_absolute-center">
+                Page {currentPage}
+            </span>
+
+            <lightning-button label="Next" onclick={handleNextPage} disabled={isNextDisabled}></lightning-button>
+        </div>
+
+    </template>
+
+    <template if:false={hasOpportunities}>
+        <div class="slds-p-around_small slds-text-body_regular">
+            No Opportunities found.
+        </div>
+    </template>
+</template>

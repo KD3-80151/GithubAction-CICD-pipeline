@@ -1,0 +1,43 @@
+<template>
+    <lightning-card>
+        <div class="slds-media slds-comment slds-hint-parent">
+            <div class = "slds-media__figure">
+                <a class = "slds-avatar slds-avatar_circle slds-avatar_medium" href="#">
+                    <img alt = "Person name" src={profileImage} title="User avatar"/>
+                </a>
+            </div>
+            <div class="slds-media__body" >
+                <div class="slds-publisher slds-publisher_comment slds-is-active"> 
+                    <!-- The textarea element represents a multiline plain text edit control for the element's raw value. The contents of the control represent the control's default value. -->
+                    <textarea   
+                        class="slds-publisher__input slds-input_bare slds-text-longform"
+                        placeholder="Write a comment"
+                        onchange={handleTextChange}
+                    ></textarea>
+                    <div class ="slds-publisher__actions slds-grid_align-spread">
+                        <ul class="slds-grid">
+                            <li>
+                                <button class="slds-button slds-button_icon slds-button_icon-container" title="Add User">
+                                    <lightning-icon icon-name="utility:adduser" size="x-small"></lightning-icon>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="slds-button slds-button_icon slds-button_icon-container" title="Add User">
+                                    <lightning-icon icon-name="utility:adduser" size="x-small"></lightning-icon>
+                                </button>
+
+                            </li>
+                        </ul>
+                        <button class="slds-button slds-button_brand" onclick={handleComment}>Comment </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div if:true={showComment} class = "slds-p-around_medium slds-border_top">
+            <div class="slds-text-heading_small slds-p-bottom_small">Your Comment: </div>
+            <div class="slds-text-body_regular">{commentText}</div>
+        </div>
+    </lightning-card>
+    
+</template>

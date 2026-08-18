@@ -1,0 +1,11 @@
+.badge-critical{
+    background:red;
+    color:white;
+    padding:5px;
+}
+
+.badge-normal{
+    background:green;
+    color:white;
+    padding:5px;
+}

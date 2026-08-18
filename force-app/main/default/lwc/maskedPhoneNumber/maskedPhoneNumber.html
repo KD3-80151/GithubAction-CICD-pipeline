@@ -1,0 +1,11 @@
+<template>
+    <lightning-record-view-form record-id={recordId} object-api-name="Lead">
+        <lightning-output-field field-name="Phone"></lightning-output-field>
+    </lightning-record-view-form>
+
+    <lightning-input label="Phone" value={displayPhone} readonly
+        onmouseover={handleMouseOver}
+        onmouseout={handleMouseOut}
+        onclick={handleClick}>
+    </lightning-input>
+</template>

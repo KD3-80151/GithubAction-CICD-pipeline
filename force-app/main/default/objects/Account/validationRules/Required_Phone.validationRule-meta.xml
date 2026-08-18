@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_Phone</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.Validation_Setting__c.Required_Phone_No__c = TRUE 
+&amp;&amp; ISBLANK(Phone)</errorConditionFormula>
+    <errorMessage>Phone Number Required</errorMessage>
+</ValidationRule>

@@ -1,0 +1,107 @@
+<template>
+    <lightning-card title="Test Record" icon-name="standard:account">
+        <div class ="record-page-container">
+            <div class="form-header">Test Details</div>
+        </div>        
+        <div class="form-container">
+            <lightning-input label="Future Id" value="To be generated" disabled class="input-field"></lightning-input>
+            <div class="claim-section"> 
+                <lightning-button label="Add WC" onclick={handleAddWarrantyClaims}> </lightning-button>
+                <p class="instruction-text">select 1 or more item</p>
+            </div>
+            <template if:true={selectedClaims.length}>
+                <!-- max-row-selection="1" -->
+                <lightning-datatable
+                    key-field="Id"
+                    data={selectedClaims}
+                    columns={selectedClaimsColumns}
+                    onrowaction={handleRowAction}
+                    class="styled-datatable"
+                    hide-checkbox-column="true"
+                ></lightning-datatable>
+            </template>
+
+            <div class="row">
+                <div class = "column">
+                    <lightning-input type="number" label="Batch Amount" value={batchAmount} disabled class="input-field"></lightning-input>
+                </div>
+                <div class="column">
+                    <lightning-input type="date" label="Batch Created Date" value={today} disabled class ="input-field"></lightning-input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <lightning-input label="Handover Person" onchange={handleHPS} class="input-field"></lightning-input>
+                </div>
+                <div class="column">
+                    <lightning-input label="Requestor Name" onchange={handleRequestorName} class="input-field"></lightning-input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <lightning-input id="a" label="Phone No." onchange={handlePhone} class="input-field" required></lightning-input>
+                </div>
+                <div class="column">
+                    <lightning-input label="Purpose of Sending" onchange={handlePOS} class="input-field"></lightning-input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <lightning-combobox 
+                        label = "Mode of Transport"
+                        placeholder="Select Transport"
+                        options={picklistValuesMOT}
+                        value={valueTransport}
+                        onchange={handlePicklistTransport} required>
+                    </lightning-combobox>
+                </div>
+                <!-- check do we need to take value in combobox-->
+                <div class="column">
+                    <lightning-combobox 
+                        label = "Address of Consignee"
+                        placeholder="Select Address"
+                        options={picklistValuesAOC}
+                        value={valueAOC}
+                        onchange={handlePicklistChangeAOC} required>
+                    </lightning-combobox>
+                </div>
+            </div>
+        </div>
+        <div class="footer-buttons">
+            <lightning-button label="Submit" variant="brand" onclick={handleSubmit} class="primary-buttons"></lightning-button>
+            <lightning-button label="Cancel" variant="danger" onclick={handleCancel} class="secondary-buttons"></lightning-button>
+        </div>
+        <div>
+
+        </div>
+    </lightning-card>
+    <template if:true={showModal}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-">
+            <div class="slds-modal_container">
+                <header class="slds-modal_header">
+                    <button class="slds_button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleModalClose}>
+                        <lightning-icon icon-name="utility:close" alternative-text="Close"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 class="slds-text-heading_medium">Select Warranty Claims</h2>
+                </header>
+
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-datatable
+                        key-field="Id"
+                        data={claims}
+                        columns={columns}
+                        onrowselection={handleRowSelection}
+                        selected-rows={preSelectedRowIds}>
+
+                    </lightning-datatable>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="neutral" label="Close" onclick={resetForm}></lightning-button>
+                    <lightning-button variant="brand" label="Select" onclick={handleSelect}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

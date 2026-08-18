@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-grid slds-align_absolute-center slds-m-top_small slds-m-bottom_medium">
+        <h2 class="slds-text-heading_small slds-m-bottom_small">
+            <input type="number" value="number1" placeholder="Number 1" onchange={handleNumber1Change}>
+            <input type="number" value="number2" placeholder="Number 2" onchange={handleNumber2Change}>
+        </h2>
+    </div>
+        
+    <div class="slds-grid slds-align_absolute-center slds-m-top_small slds-m-bottom_medium">
+        <lightning-button variant="brand" label="Add" title="Primary action" onclick={handleSum} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand-outline" label="Sub" title="Primary action with lighter look" onclick={handleSubtract} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="destructive" label="Multiply" title="Destructive action" onclick={handleMultiply} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="destructive-text" label="Divide" title="Destructive action with a lighter look" onclick={handleDivide} class="slds-m-left_x-small"></lightning-button>
+    </div>
+
+    <div class="result-container slds-grid slds-align_absolute-center slds-m-top_small slds-m-bottom_medium">
+        <h2 class="slds-text-heading_medium slds-m-top_medium">Result: {result}</h2>
+    </div>
+</template>

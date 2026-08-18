@@ -1,0 +1,7 @@
+.edit-icon {
+    cursor: pointer;
+}
+
+.edit-icon:hover {
+    color: brown;
+}

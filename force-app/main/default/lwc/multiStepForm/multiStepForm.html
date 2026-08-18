@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="Multi-Step Form" icon-name="utility:steps">
+        <div class="slds-p-around_medium">
+            <div class="slds-progress slds-progress_shade">
+                <ol class="slds-progress__list">
+                    <li class={step1Class}>
+                        <span class="slds-progress__marker"></span>
+                    </li>
+                    <li class={step2Class}>
+                        <span class="slds-progress__marker"></span>
+                    </li>
+                    <li class={step3Class}>
+                        <span class="slds-progress__marker"></span>
+                    </li>
+                </ol>
+            </div>
+
+            <template if:true={isStep1}>
+                <lightning-input label="First Name" value={firstName} onchange={handleChange} data-id="firstName" required></lightning-input>
+                <lightning-input label="Last Name" value={lastName} onchange={handleChange} data-id="lastName" required></lightning-input>
+            </template>
+
+            <template if:true={isStep2}>
+                <lightning-input label="Email" value={email} onchange={handleChange} data-id="email" required></lightning-input>
+                <lightning-input label="Phone" value={phone} onchange={handleChange} data-id="phone" required></lightning-input>
+            </template>
+
+            <template if:true={isStep3}>
+                <p><strong>First Name:</strong> {firstName}</p>
+                <p><strong>Last Name:</strong> {lastName}</p>
+                <p><strong>Email:</strong> {email}</p>
+                <p><strong>Phone:</strong> {phone}</p>
+            </template>
+
+            <div class="slds-m-top_medium">
+                <lightning-button label="Previous" onclick={handlePrevious} disabled={isStep1}></lightning-button>
+                <lightning-button label={nextLabel} variant="brand" class="slds-m-left_small" onclick={handleNext}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

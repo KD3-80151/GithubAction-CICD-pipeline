@@ -1,0 +1,73 @@
+.record-page-container{
+    padding: 1.5rem;
+    background-color: azure;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-header{
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.form-header h1 {
+    font-size: 1.5rem;
+    color: #1589ee;
+}
+
+.form-header .sub-header {
+    font-size: 1rem;
+    color: #6b7c93;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.input-field {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid lightcyan;
+    border-radius: 8px;
+    background-color: paleturquoise;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:hover {
+    border-color: darkgreen;
+}
+
+.claim-section{
+    text-align: center;
+}
+
+.instruction-text{
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: lightgreen;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.column {
+    flex: 1;
+}
+
+.footer-buttons{
+
+}
+
+.primary-buttons{
+
+}
+
+.secondary-buttons{
+
+}

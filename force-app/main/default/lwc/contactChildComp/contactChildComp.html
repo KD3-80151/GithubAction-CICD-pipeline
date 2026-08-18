@@ -1,0 +1,15 @@
+<template>
+    <template if:true={contacts.length}>
+        <lightning-card title="Related Contacts" icon-name="standard:contact">
+            <u>
+                <template for:each={contacts} for:item="contact">
+                    <li key={contact.Id}>
+                        {contact.FirstName} {contact.LastName} - {contact.Email}
+                    </li>
+                </template>
+            </u>
+
+        </lightning-card>
+
+    </template>
+</template>

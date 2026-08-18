@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Test Track example">
+        <div class="slds-var-p-around_medium">
+            <p>
+                <strong>@track object name::</strong>{obj.name}
+            </p>
+            <p>
+                <strong>normal object name</strong>{obj1.name}
+            </p>
+            <br/>
+            <lightning-button
+            title="Change the properties"
+            label="Button"
+            onclick={changeName}
+            variant="brand"
+            ></lightning-button>
+        </div>
+    </lightning-card>
+</template>

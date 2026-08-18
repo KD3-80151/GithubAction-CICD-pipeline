@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Dependent Picklist Example">
+        <div class="slds-p-around_medium">
+            <lightning-combobox
+                name="controller"
+                label="Select Rating"
+                value={selectedRating}
+                options={ratingOption}
+                onchange={handleRatingChange}>
+            </lightning-combobox>
+
+            <lightning-combobox
+                name="dependent"
+                label="Select State"
+                value={selectedSla}
+                options={slaOption}
+                onchange={handleSlaChange}
+                disabled={isSlaDisabled}>
+            </lightning-combobox>
+        </div>
+    </lightning-card>
+</template>

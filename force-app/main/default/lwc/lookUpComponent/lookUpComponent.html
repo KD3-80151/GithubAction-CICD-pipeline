@@ -1,0 +1,34 @@
+<template>
+    <div class="slds-form-element">
+        <label class="slds-form-element__label" for="lookup">{label}</label>
+        <div class="slds-form-element__control">
+            <div class="slds-combobox_container">
+                <div class={comboboxClass} role="combobox" onblur={handleBlur}>
+                    <div class="slds-combobox__form-element" role="none">
+                        <lightning-input type="search" value={searchKey} onclick={openDropdown}
+                                         onchange={handleSearchChange}
+                                         placeholder={placeholder}></lightning-input>
+                    </div>
+                    <template if:true={records}>
+                        <ul class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid" role="listbox">
+                            <template for:each={records} for:item="record">
+                                <li key={record.Id} role="presentation" class="slds-listbox__item" onclick={handleSelect} data-id={record.Id} data-name={record.Name}>
+                                    <div class="slds-listbox__option slds-media slds-media_center" role="option">
+                                        <span class="slds-media__body">{record.Name}</span>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
+                    </template>
+                </div>
+            </div>
+        </div>
+        <template if:true={selectedRecord}>
+            <div class="slds-pill_container slds-m-top_x-small">
+                <lightning-pill label={selectedRecord.Name} onremove={clearSelection}>
+                    <lightning-icon icon-name="standard:record" variant="circle" alternative-text="Record"></lightning-icon>
+                </lightning-pill>
+            </div>
+        </template>
+    </div>
+</template>

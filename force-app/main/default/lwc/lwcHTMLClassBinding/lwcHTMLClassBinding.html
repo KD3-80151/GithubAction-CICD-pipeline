@@ -1,0 +1,24 @@
+<template>
+    <template if:true={accountList}>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+            <thead>
+                <tr>
+                    <th>Account Name</th>
+                    <th>Account Type</th>
+                    <th>Number of Employees</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={accountList} for:item="account">
+                    <tr key={account.Id}>
+                        <td>
+                            <div class={account.rowClass}>{account.Name}</div>
+                        </td>
+                        <td>{account.Type}</td>
+                        <td>{account.Number_Of_Employees__c}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </template>
+</template>

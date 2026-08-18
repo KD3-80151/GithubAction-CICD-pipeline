@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Copy to Clipboard" icon-name="utility:copy_to_clipboard">
+        <div class="slds-p-around_medium">
+            <lightning-input
+                type="text"
+                label="Text to Copy"
+                value={copyText}
+                onchange={handleInputChange}>
+            </lightning-input>
+
+            <lightning-button
+                class="slds-m-top_medium"
+                label="Copy"
+                onclick={copyTextToClipboard}
+                icon-name="utility:copy"
+                variant="brand">
+            </lightning-button>
+
+            <template if:true={copied}>
+                <p class="slds-text-color_success slds-m-top_small">Copied to clipboard</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

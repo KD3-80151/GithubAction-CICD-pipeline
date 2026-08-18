@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title="Account Related Opportunities">
+        <lightning-button></lightning-button>
+        <div class="slds-m-around_medium">
+            <lightning-combobox
+                name="accounts"
+                label="Select Account"
+                value={selectedAccountId}
+                placeholder="Select an Account"
+                options={accountOpt}
+                onchange={handleAccountChange}>
+            </lightning-combobox>
+        </div>
+        
+        <template if:true={opportunities}>
+            <div class="slds-m-around_medium">
+                <template for:each={opportunities} for:item="opportunity">
+                    <div key={opportunity.Id} class="slds-box slds-m-bottom_small">
+                        <template if:false={opportunity.editMode}>
+                            <p><strong>Name:</strong> {opportunity.Name}</p>
+                            <p><strong>Stage Name:</strong> {opportunity.StageName}</p>
+                            <p><strong>Amount:</strong> {opportunity.Amount}</p>
+                            <p><strong>Close Date:</strong> {opportunity.CloseDate}</p>
+                            <lightning-icon icon-name="utility:edit" size="xx-small" alternative-text="edit" 
+                                            onclick={handleEditClick} data-opportunity-id={opportunity.Id} variant="brand"
+                                            class="edit-icon"></lightning-icon>
+                        </template>
+                        <template if:true={opportunity.editMode}>
+                            <lightning-record-edit-form
+                                record-id={opportunity.Id}
+                                object-api-name="Opportunity"
+                                onsuccess={handleUpdateSuccess}
+                                onerror={handleUpdateError}>
+                                <lightning-messages></lightning-messages>
+                                <lightning-input-field field-name="Name"></lightning-input-field>
+                                <lightning-input-field field-name="StageName"></lightning-input-field>
+                                <lightning-input-field field-name="Amount"></lightning-input-field>
+                                <lightning-input-field field-name="CloseDate"></lightning-input-field>
+                                <lightning-button class="slds-m-top_small" variant="brand" type="submit" label="Save"></lightning-button>
+                                <lightning-button class="slds-m-top_small" variant="neutral" label="Cancel" onclick={handleCancelClick} data-opportunity-id={opportunity.Id}></lightning-button>
+                            </lightning-record-edit-form>
+                        </template>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </lightning-card>
+</template>

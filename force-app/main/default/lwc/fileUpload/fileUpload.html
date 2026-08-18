@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Upload File"> 
+        <div class="slds-p-around_medium">
+            <lightning-file-upload
+                label="Upload File"
+                name="fileUpload"
+                record-id={recordId}
+                onuploadfinished={handleUploadFinished}
+                multiple
+                accept=".pdf,.png,.jpg,.jpeg,.doc,.docx"
+            >
+            </lightning-file-upload>
+            
+            <template if:true={uploadedFiles.length}>
+                <p class="slds-m-top_medium"><strong>Uploaded Files:</strong></p>
+                <ul class="slds-list_dotted slds-m-top_x-small">
+                    <template for:each={uploadedFiles} for:item="file">
+                        <li key={file.contentVersionId}>
+                            <a href={file.downloadUrl} target="_blank">{file.title}</a>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+        </div>
+    </lightning-card>
+</template>

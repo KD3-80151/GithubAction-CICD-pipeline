@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Lead Records">
+        <template if:true={leads}>
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr>
+                        <th scope="col">S.No.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Company Name</th>
+                        <th scope="col">Stage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={leads} for:item="lead">
+                        <tr key={lead.Id}>
+                            <td>{lead.serialNumber}</td>
+                            <td>{lead.Name}</td>
+                            <td>{lead.Company}</td>
+                            <td class={lead.stageClass}>{lead.Status}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </template>
+        <template if:true={error}>
+            <p class="slds-text-color_error">Error fetching Leads: {error}</p>
+        </template>
+    </lightning-card>
+</template>

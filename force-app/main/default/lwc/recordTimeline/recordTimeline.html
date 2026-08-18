@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Record Timeline">
+        <template if:true={timeline}>
+            <ul class="timeline">
+                <template for:each={timeline} for:item="item">
+                    <li key={item.timestamp}>
+                        <div class="timestamp">{item.timestamp}</div>
+                        <div class="details">
+                            <strong>{item.field}</strong> changed from
+                            <em>"{item.oldValue}"</em> to <em>"{item.newValue}"</em>
+                        </div>
+                    </li>
+                </template>
+            </ul>
+        </template>
+        <template if:true={error}>
+            <p class="slds-text-color_error">Error loading timeline.</p>
+        </template>
+    </lightning-card>
+</template>

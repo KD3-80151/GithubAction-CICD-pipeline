@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title="Contact Search">
+        <div class="slds-m-around_medium">
+            <lightning-input type="search" label="Search" placeholder="Enter contact name"
+             onchange={handleSearch}></lightning-input>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-datatable
+                key-field="Id"
+                data={contacts}
+                columns={columns}
+                selected-rows={selectedRows}
+                onrowselection={getSelectedRows}>
+            </lightning-datatable>
+        </div>
+         <div class="slds-m-around_medium">
+            <lightning-button variant="destructive" label="Delete" title="Delete" onclick={handleDelete} 
+            class="slds-m-left_x-small">
+                
+            </lightning-button>
+
+        </div>
+
+        <div class="slds-m-around_medium">
+            <template if:true={selectedContacts}>
+                <template for:each={selectedContacts} for:item="contact1">
+                    <div key={contact1.Id} class="slds-box slds-m-bottom_small">
+                        <p><strong>Name:</strong> {contact1.Name}</p>
+                        <p><strong>Email:</strong> {contact1.Email}</p>
+                        <p><strong>Phone:</strong> {contact1.Phone}</p>
+                        <p><strong>Account Name:</strong> {contact1.AccountName}</p>
+                        <p><strong>Title:  </strong>{contact1.Title} </p>
+                    </div>
+                </template>
+            </template>
+        </div>
+        
+    </lightning-card>
+</template>

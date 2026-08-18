@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Spinner Loader Example">
+        <div class="slds-p-around_medium">
+            <lightning-button label="Start Process" onclick={handleProcess}></lightning-button>
+        </div>
+        <template if:true={isLoading}>
+            <div class="slds-is-relative" style="height: 4rem;">
+                <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+        <template if:true={isCompleted}>
+            <div class="slds-m-top_medium slds-text-color_success">
+                    Data loaded successfully!
+            </div>
+        </template>
+    </lightning-card>
+</template>

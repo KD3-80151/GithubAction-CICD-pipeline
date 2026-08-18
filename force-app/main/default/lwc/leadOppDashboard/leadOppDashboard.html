@@ -1,0 +1,88 @@
+<template>
+  <div class="wrap">
+    <div class="header">
+      <h1>Lead & Opportunity Overview</h1>
+      <p class="subtitle">Leads (Unconverted) & Opportunities (All)</p>
+    </div>
+
+    <template if:true={loading}>
+      <div class="loader">
+        <div class="spinner"></div>
+        <div>Loading data…</div>
+      </div>
+    </template>
+
+    <template if:false={loading}>
+      <template if:true={error}>
+        <div class="alert error">{error}</div>
+      </template>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-label">Leads (Unconverted)</div>
+          <div class="stat-value">{totalLeadsFmt}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Opportunities (All)</div>
+          <div class="stat-value">{totalOppsFmt}</div>
+        </div>
+        <div class="stat total">
+          <div class="stat-label">Total</div>
+          <div class="stat-value">{totalAllFmt}</div>
+        </div>
+      </div>
+
+      <div class="grids">
+        <section class="card">
+          <div class="card-header">
+            <h2>Lead Status</h2>
+            <span class="pill">Unconverted only</span>
+          </div>
+          <div class="table">
+            <div class="thead">
+              <div class="th left">Status</div>
+              <div class="th right">Count</div>
+              <div class="th right" title="Conversion from Previous Stage">Conversion from Previous Stage</div>
+              <div class="th center" title="Cummulative Conversion">Cummulative Conversion</div>
+            </div>
+            <div class="tbody">
+              <template for:each={leadRows} for:item="row">
+                <div key={row.label} class="tr">
+                  <div class="td left" title={row.label}>{row.label}</div>
+                  <div class="td right">{row.count}</div>
+                  <div class="td center">{row.conversion}</div>
+                  <div class="td center">{row.cummulativeConversion}</div>
+                </div>
+              </template>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <h2>Opportunity Stage</h2>
+            <span class="pill">All opportunities</span>
+          </div>
+          <div class="table">
+            <div class="thead">
+              <div class="th left">Stage</div>
+              <div class="th right">Count</div>
+              <div class="th right" title="Conversion from Previous Stage">Conversion from Previous Stage</div>
+              <div class="th center" title="Cummulative Conversion">Cummulative Conversion</div>
+            </div>
+            <div class="tbody">
+              <template for:each={oppRows} for:item="row">
+                <div key={row.label} class="tr">
+                  <div class="td left" title={row.label}>{row.label}</div>
+                  <div class="td right">{row.count}</div>
+                  <div class="td center">{row.conversion}</div>
+                  <div class="td center">{row.cummulativeConversion}</div>
+                </div>
+              </template>
+            </div>
+          </div>
+        </section>
+      </div>
+    </template>
+  </div>
+</template>

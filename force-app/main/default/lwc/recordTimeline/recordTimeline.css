@@ -1,0 +1,33 @@
+.timeline {
+    list-style: none;
+    padding-left: 1rem;
+    border-left: 3px solid #d8dde6;
+    margin: 1rem 0;
+}
+
+.timeline li {
+    position: relative;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+}
+
+.timeline li::before {
+    content: '';
+    position: absolute;
+    left: -9px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    background-color: #0070d2;
+    border-radius: 50%;
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    color: #999;
+    margin-bottom: 0.25rem;
+}
+
+.details {
+    font-size: 0.9rem;
+}

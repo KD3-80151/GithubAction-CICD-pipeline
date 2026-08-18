@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="List of contact with pagination"
+                    icon-name="standard:contact"
+    >
+        <template if:true={visibleConatcts}>
+            <template for:each={visibleConatcts} for:item="contact">
+                <p key={contact.Id}> {contact.Name}</p>
+            </template>
+
+        </template>
+        <c-pagination-child-component records={totalContactList} onsliced={slicedHandler} >
+            
+        </c-pagination-child-component>
+    </lightning-card>
+</template>

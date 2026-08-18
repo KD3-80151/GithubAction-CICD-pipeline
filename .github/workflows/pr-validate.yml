@@ -26,6 +26,7 @@ jobs:
 
       - name: Generate delta
         run: |
+          mkdir -p delta
           sf sgd source delta \
             --from origin/${{ github.base_ref }} --to HEAD \
             --output-dir delta --generate-delta

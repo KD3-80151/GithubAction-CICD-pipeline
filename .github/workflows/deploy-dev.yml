@@ -1,0 +1,64 @@
+name: Deploy to DEV
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install CLI
+        run: |
+          npm install -g @salesforce/cli
+          echo y | sf plugins install sfdx-git-delta
+
+      - name: Generate delta
+        run: |
+          mkdir -p delta
+          sf sgd source delta \
+            --from HEAD~1 --to HEAD \
+            --output-dir delta --generate-delta
+          echo "----- package.xml -----"
+          cat delta/package/package.xml
+
+      - name: Check for changes
+        id: check
+        run: |
+          if grep -q "<types>" delta/package/package.xml; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No metadata changes — skipping deploy"
+          fi
+
+      - name: Authenticate
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          echo "${{ secrets.SF_JWT_KEY }}" > server.key
+          sf org login jwt \
+            --client-id ${{ secrets.SF_CLIENT_ID }} \
+            --jwt-key-file server.key \
+            --username ${{ secrets.SF_USERNAME }} \
+            --instance-url ${{ secrets.SF_INSTANCE_URL }} \
+            --alias target
+          rm -f server.key
+
+      - name: Deploy
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          sf project deploy start \
+            --manifest delta/package/package.xml \
+            --post-destructive-changes delta/destructiveChanges/destructiveChanges.xml \
+            --test-level RunSpecifiedTests \
+            --tests PipelineTestClassTest \
+            --target-org target \
+            --wait 60
